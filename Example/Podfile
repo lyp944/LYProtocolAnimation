@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'LYProtocolAnimation_Example' do
+  pod 'LYProtocolAnimation', :path => '../'
+
+  target 'LYProtocolAnimation_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
