@@ -4,8 +4,8 @@
 //
 //  Created by Mega on 09/29/2018.
 //  Copyright (c) 2018 Mega. All rights reserved.
-//
-
+//"
+#import "LYDemoViewController.h"
 #import "LYViewController.h"
 
 @interface LYViewController ()
@@ -18,12 +18,14 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    self.view.backgroundColor = [UIColor whiteColor];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)present:(id)sender {
+    LYDemoViewController *vc = [[LYDemoViewController alloc]init];
+    [vc customPresentedFromViewController:self];
 }
+
+
 
 @end

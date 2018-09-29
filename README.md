@@ -22,7 +22,7 @@ pod 'LYProtocolAnimation'
 
 ## Author
 
-Mega, yunpeng.li@sdbean.com
+Liyunpeng, lypworkon@sina.com
 
 ## License
 
