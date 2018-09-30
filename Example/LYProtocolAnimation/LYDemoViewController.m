@@ -92,11 +92,11 @@
                 
                 
                 UIView *superView = self.view.superview;
-                self.view.translatesAutoresizingMaskIntoConstraints = NO;
-                [self.view.bottomAnchor constraintEqualToAnchor:superView.bottomAnchor].active = YES;
-                [self.view.leftAnchor constraintEqualToAnchor:superView.leftAnchor].active = YES;
-                [self.view.rightAnchor constraintEqualToAnchor:superView.rightAnchor].active = YES;
-                self.heightCon = [self.view.heightAnchor constraintEqualToConstant:0];
+                toView.translatesAutoresizingMaskIntoConstraints = NO;
+                [toView.bottomAnchor constraintEqualToAnchor:superView.bottomAnchor].active = YES;
+                [toView.leftAnchor constraintEqualToAnchor:superView.leftAnchor].active = YES;
+                [toView.rightAnchor constraintEqualToAnchor:superView.rightAnchor].active = YES;
+                self.heightCon = [toView.heightAnchor constraintEqualToConstant:0];
                 self.heightCon.active = YES;
                 [transitionContext.containerView layoutIfNeeded];
 
