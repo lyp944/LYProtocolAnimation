@@ -22,55 +22,55 @@ pod 'LYProtocolAnimation'
 ## Usage
 ```
 self.modelDelegate = [[LYModelTransitionDelegate alloc]init];
-
-__weak typeof(self) weakSelf = self;
-[self.modelDelegate setAnimatedProcessBlock:^(UIViewController *fromVC, UIViewController *toVC, UIView *fromView, UIView *toView, LYProtocolOperationType operationType, NSTimeInterval duration, id<UIViewControllerContextTransitioning> transitionContext) {
-__strong typeof(weakSelf) self = weakSelf;
-
-switch (operationType) {
-case LYProtocolOperationTypePresentPresentation:{
-
-
-UIView *superView = self.view.superview;
-self.view.translatesAutoresizingMaskIntoConstraints = NO;
-[self.view.bottomAnchor constraintEqualToAnchor:superView.bottomAnchor].active = YES;
-[self.view.leftAnchor constraintEqualToAnchor:superView.leftAnchor].active = YES;
-[self.view.rightAnchor constraintEqualToAnchor:superView.rightAnchor].active = YES;
-self.heightCon = [self.view.heightAnchor constraintEqualToConstant:0];
-self.heightCon.active = YES;
-[transitionContext.containerView layoutIfNeeded];
-
-
-self.heightCon.constant = 500;
-
-}break;
-case LYProtocolOperationTypePresentDismissal:
-default:{
-
-self.heightCon.constant = 0;
+	
+	__weak typeof(self) weakSelf = self;
+	[self.modelDelegate setAnimatedProcessBlock:^(UIViewController *fromVC, UIViewController *toVC, UIView *fromView, UIView *toView, LYProtocolOperationType operationType, NSTimeInterval duration, id<UIViewControllerContextTransitioning> transitionContext) {
+		__strong typeof(weakSelf) self = weakSelf;
+		
+		switch (operationType) {
+			case LYProtocolOperationTypePresentPresentation:{
+				
+				
+				UIView *superView = self.view.superview;
+				self.view.translatesAutoresizingMaskIntoConstraints = NO;
+				[self.view.bottomAnchor constraintEqualToAnchor:superView.bottomAnchor].active = YES;
+				[self.view.leftAnchor constraintEqualToAnchor:superView.leftAnchor].active = YES;
+				[self.view.rightAnchor constraintEqualToAnchor:superView.rightAnchor].active = YES;
+				self.heightCon = [self.view.heightAnchor constraintEqualToConstant:0];
+				self.heightCon.active = YES;
+				[transitionContext.containerView layoutIfNeeded];
 
 
-}break;
-}
+				self.heightCon.constant = 500;
+				
+			}break;
+			case LYProtocolOperationTypePresentDismissal:
+			default:{
+				
+				self.heightCon.constant = 0;
+				
 
-[UIView animateWithDuration:duration animations:^{
-[transitionContext.containerView layoutIfNeeded];
-}completion:^(BOOL finished) {
-BOOL isCancelled = transitionContext.transitionWasCancelled;
-if (isCancelled) {
-self.heightCon.constant = 500;
-}
-
-[transitionContext completeTransition:!isCancelled];
-}];
-
-
-}];
-
-
-self.transitioningDelegate = self.modelDelegate;
-self.modalPresentationStyle = UIModalPresentationCustom;
-[fromViewController presentViewController:self animated:YES completion:nil];
+			}break;
+		}
+		
+		[UIView animateWithDuration:duration animations:^{
+			[transitionContext.containerView layoutIfNeeded];
+		}completion:^(BOOL finished) {
+			BOOL isCancelled = transitionContext.transitionWasCancelled;
+			if (isCancelled) {
+				self.heightCon.constant = 500;
+			}
+			
+			[transitionContext completeTransition:!isCancelled];
+		}];
+		
+		
+	}];
+	
+	
+	self.transitioningDelegate = self.modelDelegate;
+	self.modalPresentationStyle = UIModalPresentationCustom;
+	[fromViewController presentViewController:self animated:YES completion:nil];
 ```
 
 ## Author
